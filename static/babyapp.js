@@ -1,4 +1,4 @@
-var server = 'http://localhost:4001'
+var server = 'http://localhost:4001/'
 
 var BabyApp = angular.module('BabyApp', []);
 

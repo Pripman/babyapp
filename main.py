@@ -31,6 +31,6 @@ def makedummy():
     db.append({'id': str(uuid1()), 'name': 'Sanne', 'message': 'NOOO!!!!!'})
 
 if __name__ == "__main__":
-#    app.debug = True
+    app.debug = True
     makedummy()
     app.run('0.0.0.0', port=4001) 
