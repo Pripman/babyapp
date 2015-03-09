@@ -1,3 +1,5 @@
+var server = 'http://localhost:4001'
+
 var BabyApp = angular.module('BabyApp', []);
 
 BabyApp.factory('Messages', function($http){
@@ -17,7 +19,7 @@ BabyApp.factory('Messages', function($http){
         };
 
         messages.query = function(){
-                var response = $http.get('http://localhost:4001/messages');
+                var response = $http.get(server + "messages");
                 response.success(function(data, status, headers, config){
                         messages.refresh(data);
                 });
@@ -28,7 +30,7 @@ BabyApp.factory('Messages', function($http){
         }
 
         messages.post = function(obj){
-                var response = $http.post('http://localhost:4001/messages', obj)
+                var response = $http.post(server + 'messages', obj)
                 response.error(function(data, status, headers, config){
                         alert("An error occurred posting the message");
                 });
