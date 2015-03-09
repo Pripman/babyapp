@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request
+from flask import render_template
 import json
 import logging
 from uuid import uuid1
@@ -8,9 +9,9 @@ log = app.logger
 
 db = []
 
-@app.route('/start')
+@app.route('/')
 def start():
-    return "Hello from babyapp, plus noget mere"
+    return render_template('index.html') 
 
 @app.route('/messages')
 def getmessages():
@@ -22,6 +23,7 @@ def insertmessage():
     db.append({'id':str(uuid1()), 'name':r['name'], 'message':r['message']}) 
     app.logger.debug(db)
     return "OK", 200
+
 
 def makedummy():
     db.append({'id': str(uuid1()), 'name': 'Sanne', 'message': 'Hvor har de billige bleer'})

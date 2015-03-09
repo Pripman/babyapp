@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app=BabyApp>
+        <head>
+                <title>Babyapp</title>
+                <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+                <link href="/static/style.css" rel="stylesheet">
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        </head>
+        <body>
+                <div>
+                        <div class="messages" ng-controller="messageController">
+                                <div  ng-repeat="message in messages">
+                                        <div class="well">
+                                                <br>
+                                                <p class="small">{{ message.name}}:</p>
+                                                <p class="alert alert-success"> {{ message.message }}</p>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div ng-controller="manageController">
+                                <select ng-model="selectedUser" ng-options="name as name.name for name in users">
+                                        <option value="">Vælg bruger<option>
+                                </select>
+                                <input type="text"  ng-model="message"/>
+                                <button class="btn btn-primary" ng-click="addmessage()">tilføj besked</button>
+                        </div>
+                </div>
+                <div ng-inculde="http://politiken.dk"/>
+                <script src="angular.min.js"></script>
+                <script src="babyapp.js"></script>
+        </body>
+</html>
